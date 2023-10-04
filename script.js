@@ -52,8 +52,10 @@ function makeList() {
   }
 }
 
-function fungsiCek () {
-  alert('Tombol cek sudah Berjalan');
+function fungsiCek (e) {
+  if(e.target.classList.contains('fa-circle-check')){
+    e.target.parentElement.previousElementSibling.previousElementSibling.style.textDecoration = 'line-through';
+  }
 }
 
 function fungsiDelete() {
