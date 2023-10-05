@@ -37,9 +37,8 @@ function makeList() {
 
     const tidakada = document.getElementById('tidakada');
     if (tidakada) {
-      listContainer.removeChild(tidakada);
-    }
-
+      tidakada.style.display = 'none';
+    } 
     const checklist = document.querySelectorAll('.complete');
     checklist.forEach( checklistButton => {
       checklistButton.addEventListener('click', fungsiCek);
@@ -55,11 +54,21 @@ function makeList() {
 function fungsiCek (e) {
   if(e.target.classList.contains('fa-circle-check')){
     e.target.parentElement.previousElementSibling.previousElementSibling.style.textDecoration = 'line-through';
+  } else {
+    444
   }
 }
 
-function fungsiDelete() {
-  alert('Tombol Delete sudah berjalan');
+function fungsiDelete(e) {
+  if(e.target.classList.contains('fa-circle-xmark')){
+    let konfir = confirm('Apakah anda yakin');
+    if(konfir) {
+      e.target.parentElement.parentElement.style.display = 'none'
+    } else {
+      // do nothing herey ketang aaokwaoka
+    }
+  }
+
 }
 
 function resetForm (namelist) {
