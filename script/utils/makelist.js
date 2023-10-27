@@ -1,10 +1,6 @@
-// KODE DI TULIS OLEH RIZKY AL FARID HAFIZH
-
-const submitButton = document.getElementById('submit');
-submitButton.addEventListener('click', (ev) => {
-  ev.preventDefault();
-  makeList();
-})
+import fungsiCek from './checkFucn.js';
+import fungsiDelete from './deleteFucn.js';
+import resetForm from './resetForm.js';
 
 function makeList() {
   const inputList = document.getElementById('inputList')
@@ -15,7 +11,7 @@ function makeList() {
     alert('Input Masih kosong');
   } else {
     const namelist = document.createElement('div');
-    namelist.setAttribute('class', 'namelist');
+    namelist.setAttribute('class',    'namelist');
     namelist.textContent = inputList.value;
    
     const deleteButton = document.createElement('div');
@@ -51,27 +47,4 @@ function makeList() {
   }
 }
 
-function fungsiCek (e) {
-  if(e.target.classList.contains('fa-circle-check')){
-    e.target.parentElement.previousElementSibling.previousElementSibling.style.textDecoration = 'line-through';
-  } else {
-    444
-  }
-}
-
-function fungsiDelete(e) {
-  if(e.target.classList.contains('fa-circle-xmark')){
-    let konfir = confirm('Apakah anda yakin');
-    if(konfir) {
-      e.target.parentElement.parentElement.style.display = 'none'
-    } else {
-      // do nothing herey ketang aaokwaoka
-    }
-  }
-
-}
-
-function resetForm (namelist) {
-  namelist.value = '';
-}
-
+export default makeList;
